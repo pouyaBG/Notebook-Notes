@@ -24,7 +24,8 @@ body {
   top: 0;
   right: 0;
   border-radius: 100px 0 0;
-  background: linear-gradient(180deg, #2a467e, #283142);
+  background-color: #0093e9;
+  background-image: linear-gradient(160deg, #0093e9 0%, #68beb4 100%);
   display: flex;
   flex-direction: column;
   transition: all 0.5s;
@@ -51,25 +52,51 @@ body {
 .notes__list::-webkit-scrollbar {
   display: none;
 }
+/* buttons */
 
-.notes__add {
-  width: 170px;
-  text-align: center;
-  height: 40px;
-  color: #fff;
-  background-color: rgb(15, 104, 131);
-  outline: none;
-  border: none;
-  box-shadow: 0 0 4px #fff;
-  border-radius: 10px;
+.coolBeans {
+  border: 2px solid currentColor;
   cursor: pointer;
-  margin-right: 1.2rem;
-  transition: all 0.4s;
+  border-radius: 8px;
+  width: 170px;
+  height: 50px;
+  color: rgb(12, 163, 168);
+  overflow: hidden;
+  position: relative;
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+  z-index: 0;
+  margin-right: 0.8rem;
 }
+
+.notes__add::after {
+  background-color: rgb(1, 146, 230);
+  color: #fff;
+  border-radius: 8px;
+  content: '';
+  display: block;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: translate(-100%, 0) rotate(10deg);
+  transform-origin: top left;
+  transition: 0.2s transform ease-out;
+  will-change: transform;
+  z-index: -1;
+}
+.notes__add:hover::after {
+  transform: translate(0, 0);
+}
+
 .notes__add:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 8px #fff;
+  border: 2px solid transparent;
+  color: #fff;
+  transform: scale(1.01);
+  will-change: transform;
 }
+
 .notes__list-item {
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   cursor: pointer;
@@ -127,5 +154,3 @@ body {
 .notes__bosy:focus {
   box-shadow: 0 0 10px rgb(15, 104, 131);
 }
-
-
