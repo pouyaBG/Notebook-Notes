@@ -139,7 +139,7 @@ body {
 .notes__title:focus {
   box-shadow: 0 0 10px rgb(15, 104, 131);
 }
-.notes__bosy {
+.notes__body {
   width: 90%;
   outline: none;
   border: none;
