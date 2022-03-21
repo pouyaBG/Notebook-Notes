@@ -1,0 +1,131 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  direction: rtl;
+  list-style-type: none;
+  background-color: rgb(236, 236, 236);
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.notes {
+  display: flex;
+}
+:root {
+  --width-nav: 250px;
+}
+.notes__sidebar {
+  height: 92.3vh;
+  width: var(--width-nav);
+  padding: 1.5rem 0.5rem;
+  position: sticky;
+  top: 0;
+  right: 0;
+  border-radius: 100px 0 0;
+  background: linear-gradient(180deg, #2a467e, #283142);
+  display: flex;
+  flex-direction: column;
+  transition: all 0.5s;
+}
+.notes__logo {
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+  font-size: 2rem;
+  font-weight: 800;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 2rem 0;
+  text-align: center;
+  color: #fff;
+}
+
+.notes__list {
+  color: #fff;
+  padding: 1.54rem 0.5rem;
+  overflow-y: auto;
+  margin-top: 1rem;
+  flex-grow: 1;
+}
+
+.notes__list::-webkit-scrollbar {
+  display: none;
+}
+
+.notes__add {
+  width: 170px;
+  text-align: center;
+  height: 40px;
+  color: #fff;
+  background-color: rgb(15, 104, 131);
+  outline: none;
+  border: none;
+  box-shadow: 0 0 4px #fff;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-right: 1.2rem;
+  transition: all 0.4s;
+}
+.notes__add:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 8px #fff;
+}
+.notes__list-item {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+}
+
+.notes__list-item--selected {
+  background-color: rgb(231, 230, 230);
+  color: rgba(0, 0, 0, 0.3);
+  text-align: justify;
+  border-radius: 5px;
+}
+.notes__small-title {
+  margin: 1rem 0.2rem;
+  font-size: 20px;
+}
+
+/* notes__preview */
+
+.notes__preview {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-top: 2rem;
+  color: rgba(0, 0, 0, 0.5);
+  flex-grow: 1;
+}
+.notes__title {
+  width: 90%;
+  outline: none;
+  border: none;
+  border-radius: 10px;
+  height: 50px;
+  margin-bottom: 2rem;
+  font-size: 20px;
+  padding: 1rem 0.5rem;
+  color: rgba(104, 104, 104, 0.9);
+  transition: all 0.5s;
+}
+.notes__title:focus {
+  box-shadow: 0 0 10px rgb(15, 104, 131);
+}
+.notes__bosy {
+  width: 90%;
+  outline: none;
+  border: none;
+  border-radius: 10px;
+  height: 60vh;
+  margin-bottom: 2rem;
+  font-size: 20px;
+  padding: 2rem 0.5rem;
+  resize: none;
+  transition: all 0.5s;
+}
+.notes__bosy:focus {
+  box-shadow: 0 0 10px rgb(15, 104, 131);
+}
+
+
