@@ -1,21 +1,15 @@
 const notes = [
   {
     id: 1,
-    title: 'second note',
-    body: 'some dummy text second',
+    title: 'Javascript',
+    body: 'statt now',
     updated: '2021-10-31T15:02:00.411Z',
   },
   {
-    id: 3,
-    title: 'first note',
-    body: 'some  text firt',
-    updated: '2021-10-31T15:10:23.556Z',
-  },
-  {
     id: 2,
-    title: 'second ',
-    body: 'some  text second=sad',
-    updated: '2021-10-31T15:04:00.411Z',
+    title: 'React',
+    body: 'i need time',
+    updated: '2022-03-22T11:17:33.993Z',
   },
 ];
 
