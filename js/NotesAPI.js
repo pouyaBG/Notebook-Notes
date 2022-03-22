@@ -1,20 +1,20 @@
 const notes = [
   {
-    id: 2,
-    titile: 'second note',
+    id: 1,
+    title: 'second note',
     body: 'some dummy text second',
     updated: '2021-10-31T15:02:00.411Z',
   },
   {
-    id: 1,
-    titile: 'first note',
-    body: 'some dummy text firt',
-    updated: '2021-10-31T15:03:23.556Z',
+    id: 3,
+    title: 'first note',
+    body: 'some  text firt',
+    updated: '2021-10-31T15:10:23.556Z',
   },
   {
-    id: 12,
-    titile: 'second note-esssssdeu',
-    body: 'some dummy text second=sad',
+    id: 2,
+    title: 'second ',
+    body: 'some  text second=sad',
     updated: '2021-10-31T15:04:00.411Z',
   },
 ];
@@ -23,7 +23,7 @@ const notes = [
 
 export default class NotesAPI {
   static getAllNotes() {
-    const savedNotes = JSON.parse(localStorage.getItem('notes-app')) || [];
+    const savedNotes = notes || [];
     return savedNotes.sort((a, b) => {
       return new Date(a.updated) > new Date(b.updated) ? -1 : 1;
     });
@@ -48,7 +48,7 @@ export default class NotesAPI {
     }
     localStorage.setItem('notes-app', JSON.stringify(notes));
   }
-
+  
   static deleteNote(id) {
     const notes = NotesAPI.getAllNotes();
     const fillterNotes = notes.filter((n) => n.id != id);
