@@ -1,15 +1,14 @@
 export default class NotesView {
   constructor(root, handlers) {
     this.root = root;
-    const { onNoteAdd, onNoteEdit } = handlers;
+    const { onNoteAdd, onNoteEdit, onNoteSelect } = handlers;
     this.onNoteAdd = onNoteAdd;
     this.onNoteEdit = onNoteEdit;
+    this.onNoteSelect = onNoteSelect;
     this.root.innerHTML = `
     <div class="notes__sidebar">
       <div class="notes__logo">NOTE APP</div>
-      <div class="notes__list">
-      
-      </div>
+      <div class="notes__list"></div>
       <button class="notes__add coolBeans">ADD NOTE</button>
     </div>
     <div class="notes__preview">
@@ -30,6 +29,43 @@ export default class NotesView {
         const newBody = inputBody.value.trim();
         const newTitle = inputTitle.value.trim();
         this.onNoteEdit(newTitle, newBody);
+      });
+    });
+  }
+
+  // privet class دسترسی در جای دگیر نداریم
+  _createListItemHtml(id, title, body, updated) {
+    const MAX_BODY_LENGTH = 50;
+    return `
+    <div class="notes__list-item" data-note-id="${id}" >
+    <div class="notes__small-title">${title}</div>
+    <div class="notes__small-body">
+    ${body.substring(0, MAX_BODY_LENGTH)}
+    ${body.length > MAX_BODY_LENGTH ? '...' : ''}
+    </div>
+    <div class="notes__small-updated">
+    ${new Date(updated).toLocaleString('en', {
+      dataStyle: 'full',
+      timeStyle: 'short',
+    })}
+    </div>
+  </div>
+    `;
+  }
+  updateNoteList(notes) {
+    const notesContainer = this.root.querySelector('.notes__list');
+    // empty
+    notesContainer.innerHTML = '';
+    let notesList = '';
+    for (const note of notes) {
+      const { id, title, body, updated } = note;
+      const html = this._createListItemHtml(id, title, body, updated);
+      notesList += html;
+    }
+    notesContainer.innerHTML = notesList;
+    notesContainer.querySelectorAll('.notes__list-item').forEach((noteItem) => {
+      noteItem.addEventListener('click', () => {
+        this.onNoteSelect(noteItem.dataset.noteId);
       });
     });
   }
