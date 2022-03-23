@@ -1,20 +1,4 @@
-const notes = [
-  {
-    id: 1,
-    title: 'Javascript',
-    body: 'start now',
-    updated: '2021-10-31T15:02:00.411Z',
-  },
-  {
-    id: 2,
-    title: 'React',
-    body: 'i need time',
-    updated: '2022-03-22T11:17:33.993Z',
-  },
-];
-
 // take note / save note / delete note
-
 export default class NotesAPI {
   static getAllNotes() {
     const savedNotes = JSON.parse(localStorage.getItem('notes-app')) || [];
