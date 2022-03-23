@@ -33,13 +33,13 @@ export default class NotesView {
       });
     });
     // hide notes preview when in first loading :
-    
+
     this.updateNotePreviewVissibility(false)
   }
 
   // privet class دسترسی در جای دگیر نداریم
   _createListItemHtml(id, title, body, updated) {
-    const MAX_BODY_LENGTH = 50;
+    const MAX_BODY_LENGTH = 40;
     return `
     <div class="notes__list-item" data-note-id="${id}" >
     
