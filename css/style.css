@@ -190,3 +190,51 @@ body {
 .notes__list-trash:hover {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
+
+@media screen and (max-width: 364px) {
+  .notes__sidebar {
+    height: 95vh;
+    width: 110px;
+    padding: 0.2rem;
+    border-radius: 20px 0 0;
+  }
+  .notes__logo {
+    font-size: 1rem;
+    padding: 1rem 0;
+  }
+  .notes__list {
+    padding: 0;
+    margin-top: 0.5rem;
+  }
+  .coolBeans {
+    width: 100px;
+    margin-right: 0rem;
+  }
+
+  .notes__small-title {
+    margin: 0rem;
+    font-size: 20px;
+  }
+  .notes__small-body {
+    font-size: 15px;
+    border-top: none;
+    border-bottom: none;
+  }
+
+  .notes__preview {
+    margin-top: 1rem;
+  }
+  .notes__title {
+    border-radius: 20px;
+    height: 40px;
+  }
+  .notes__body {
+    border-radius: 20px;
+    height: 74vh;
+    margin-bottom: 0;
+  }
+  .notes__list-trash {
+    width: 25px;
+    height: 25px;
+  }
+}
