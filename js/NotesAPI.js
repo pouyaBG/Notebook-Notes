@@ -17,7 +17,7 @@ const notes = [
 
 export default class NotesAPI {
   static getAllNotes() {
-    const savedNotes = notes || [];
+    const savedNotes = JSON.parse(localStorage.getItem('notes-app')) || [];
     return savedNotes.sort((a, b) => {
       return new Date(a.updated) > new Date(b.updated) ? -1 : 1;
     });
@@ -31,7 +31,7 @@ export default class NotesAPI {
     const exsistNote = notes.find((n) => n.id == noteToSave.id);
     if (exsistNote) {
       //user send
-      exsistNote.titile = noteToSave.titile;
+      exsistNote.title = noteToSave.title;
       exsistNote.body = noteToSave.body;
       exsistNote.updated = new Date().toISOString();
     } else {
@@ -42,7 +42,7 @@ export default class NotesAPI {
     }
     localStorage.setItem('notes-app', JSON.stringify(notes));
   }
-  
+
   static deleteNote(id) {
     const notes = NotesAPI.getAllNotes();
     const fillterNotes = notes.filter((n) => n.id != id);
