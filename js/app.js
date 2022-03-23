@@ -11,6 +11,7 @@ const view = new NotesView(app, {
   },
   onNoteSelect(noteId) {
     console.log(noteId);
+    // make note
   },
   onNodeDelet(noteId) {
     console.log(noteId);
@@ -18,3 +19,4 @@ const view = new NotesView(app, {
 });
 
 view.updateNoteList(NotesAPI.getAllNotes());
+view.updateActiveNote(NotesAPI.getAllNotes()[1]);
