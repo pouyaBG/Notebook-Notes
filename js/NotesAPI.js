@@ -2,7 +2,7 @@ const notes = [
   {
     id: 1,
     title: 'Javascript',
-    body: 'statt now',
+    body: 'start now',
     updated: '2021-10-31T15:02:00.411Z',
   },
   {
