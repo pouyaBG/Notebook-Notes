@@ -100,13 +100,14 @@ body {
 .notes__list-item {
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   cursor: pointer;
+  transition: all 0.5s;
 }
 
 .notes__list-item--selected {
-  background-color: rgb(231, 230, 230);
+  background-color: rgba(0, 0, 0, 0.5);
   color: rgba(0, 0, 0, 0.3);
-  text-align: justify;
-  border-radius: 5px;
+  border-radius: 4px;
+  padding: 0.2rem;
 }
 .notes__small-title {
   margin: 1rem 0.2rem;
