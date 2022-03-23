@@ -32,6 +32,9 @@ export default class NotesView {
         this.onNoteEdit(newTitle, newBody);
       });
     });
+    // hide notes preview when in first loading :
+    
+    this.updateNotePreviewVissibility(false)
   }
 
   // privet class دسترسی در جای دگیر نداریم
@@ -75,12 +78,33 @@ export default class NotesView {
         this.onNoteSelect(noteItem.dataset.noteId);
       });
     });
-    notesContainer.querySelectorAll('.notes__list-trash').forEach((noteItem) => {
+    notesContainer
+      .querySelectorAll('.notes__list-trash')
+      .forEach((noteItem) => {
         noteItem.addEventListener('click', (e) => {
           // برای تنها اجرا شدن کلیک فرزند
           e.stopPropagation();
           this.onNodeDelet(noteItem.dataset.noteId);
         });
       });
+  }
+
+  updateActiveNote(note) {
+    this.root.querySelector('.notes__title').value = note.title;
+    this.root.querySelector('.notes__body').value = note.body;
+
+    // add selected class
+    this.root.querySelectorAll('.notes__list-item').forEach((item) => {
+      item.classList.remove('notes__list-item--selected');
+    });
+
+    this.root
+      .querySelector(`.notes__list-item[data-note-id="${note.id}"]`)
+      .classList.add('notes__list-item--selected');
+  }
+  updateNotePreviewVissibility(visible) {
+    this.root.querySelector('.notes__preview').style.visibility = visible
+      ? 'visible'
+      : 'hidden';
   }
 }
